@@ -14,16 +14,11 @@ public class Triangle {
     }
 
     public double period(double a, double b, double c) {
-        double p = (a + b + c) / 2;
-        return p;
+        return (a + b + c) / 2;
     }
 
     public boolean exist(double ab, double ac, double bc) {
-        boolean exists = false;
-        if (((ab + bc) > ac) && ((ac + bc) > ab) && ((ab + ac) > bc)) {
-            exists = true;
-        }
-            return exists;
+            return ((ab + bc) > ac) && ((ac + bc) > ab) && ((ab + ac) > bc);
     }
 
     public double area() {
