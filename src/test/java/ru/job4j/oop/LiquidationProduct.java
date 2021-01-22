@@ -1,6 +1,6 @@
 package ru.job4j.oop;
 
-public final class LiquidationProduct extends Product {
+public final class LiquidationProduct {
     private Product product;
 
     public LiquidationProduct(String  name, int price) {
