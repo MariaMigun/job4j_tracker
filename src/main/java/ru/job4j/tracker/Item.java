@@ -20,7 +20,7 @@ public class Item {
     }
 
     public void setCreated(LocalDateTime created) {
-        this.created = created;
+        this.created = LocalDateTime.now();
     }
 
     public String getName() {

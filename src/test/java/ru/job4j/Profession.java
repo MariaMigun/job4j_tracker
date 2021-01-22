@@ -24,4 +24,5 @@ public class Profession {
     public String getEducation() {
         return education;
     }
+
 }

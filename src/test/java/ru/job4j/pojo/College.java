@@ -6,7 +6,7 @@ public class College {
         Students student = new Students();
         student.setName("Maria Migunova");
         student.setGroup("IIT-111");
-        student.getEntering(new Date());
+        student.setEntering(new Date());
         System.out.println(student.getName() + "from group " + student.getGroup()
                 + " entered on " + student.getEntering());
     }
