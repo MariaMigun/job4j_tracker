@@ -6,6 +6,6 @@ public class Doctor extends Profession{
     private String hospital;
 
     public String getPatient() {
-
+        return patient;
     }
 }

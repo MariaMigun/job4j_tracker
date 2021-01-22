@@ -5,9 +5,7 @@ import ru.job4j.Engineer;
 public class Builder extends Engineer {
     private String speciality;
 
-    public String works() {
-    }
-
     public String getSpeciality() {
+        return speciality;
     }
 }

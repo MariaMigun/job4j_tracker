@@ -6,5 +6,6 @@ public class Engineer extends Profession {
     private String factory;
 
     public String getPartner() {
+        return partner;
     }
 }

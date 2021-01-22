@@ -7,7 +7,7 @@ public class Surgeon extends Doctor {
 
     private int room;
 
-    public String getRoom() {
-
+    public int getRoom() {
+        return room;
     }
 }

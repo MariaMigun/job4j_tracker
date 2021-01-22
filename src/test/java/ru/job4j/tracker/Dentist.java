@@ -8,5 +8,6 @@ public class Dentist extends Doctor {
     private int price;
 
     public boolean toothCut() {
+        return toothCut();
     }
 }
