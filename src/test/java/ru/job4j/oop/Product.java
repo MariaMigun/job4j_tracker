@@ -1,10 +1,10 @@
 package ru.job4j.oop;
 
-public final class Product {
+public class Product {
     private String name;
     private int price;
 
-    /*public Product(String name, int price) {
+    public Product(String name, int price) {
         this.name = name;
         this.price = price;
     }
@@ -19,5 +19,5 @@ public final class Product {
 
     public String label() {
         return name + " " + price();
-    }*/
+    }
 }
