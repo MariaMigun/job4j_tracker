@@ -7,7 +7,10 @@ public class StartUI {
 
     public static void main(String[] args) {
         Item item = new Item ();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MMMM-EEEE-yyyy HH:mm:ss");
-        System.out.println("Текущие дата и время после форматирования: " + item.getCreated().format(formatter));
+        /*DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MMMM-EEEE-yyyy HH:mm:ss");
+        System.out.println("Текущие дата и время после форматирования: " + item.getCreated().format(formatter));*/
+        Tracker track = new Tracker();
+        track.add(item);
+        System.out.println(track.findById(item.getId()));
     }
 }
