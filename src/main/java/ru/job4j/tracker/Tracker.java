@@ -14,41 +14,42 @@ public class Tracker {
     }
 
     public Item findById(int id) {
-        Item rsl = null;
-        for (int index = 0; index < size; index++) {
-            Item item = items[index];
-            if (item.getId() == id) {
-                rsl = item;
-                break;
-            }
-        }
-        return rsl;
+        int index = indexOf(id);
+        /* Если индекс найден возвращаем item, иначе null */
+        return index != -1 ? items[index] : null;
     }
     public Item[] findAll(){
-        Item[] namesWithoutNull = new Item[items.length];
-        for (int index = 0; index < items.length; index++) {
-            Item name = items[index];
-            if (name != null) {
-                namesWithoutNull[size] = name;
-                size++;
-            }
-        }
-        namesWithoutNull = Arrays.copyOf(namesWithoutNull, size);
-        for (int index = 0; index < namesWithoutNull.length; index++) {
-            System.out.println(namesWithoutNull[index]);
-        }
-        return namesWithoutNull;
+        return Arrays.copyOf(items, size);
     }
 
-   /* public Item[] findByName(String key){
-        Item rsl = null;
+    private int indexOf(int id) {
+        int rsl = -1;
         for (int index = 0; index < size; index++) {
-            Item item = items[index];
-            if (item.getName().equals(key)) {
-                rsl = item;
+            if (items[index].getId() == id) {
+                rsl = index;
                 break;
             }
         }
         return rsl;
-    }*/
+    }
+
+    public boolean replace(int id, Item item) {
+        int index = indexOf(id);
+        int itemId = items[index].getId();
+        boolean rsl = false;
+        items[index] = item;
+        rsl = (itemId == items[index].getId());
+        return rsl;
+    }
+
+    public Item findByName(String key){
+        Item rsl = items[0];
+        for (int index = 0; index < size; index++) {
+            if (items[index].getName().equals(key)) {
+                rsl = items[index];
+                break;
+            }
+        }
+        return rsl;
+    }
 }

@@ -11,6 +11,6 @@ public class StartUI {
         System.out.println("Текущие дата и время после форматирования: " + item.getCreated().format(formatter));*/
         Tracker track = new Tracker();
         track.add(item);
-        System.out.println(track.findById(item.getId()));
+        System.out.println("ID элемента: " + track.findById(item.getId()));
     }
 }
