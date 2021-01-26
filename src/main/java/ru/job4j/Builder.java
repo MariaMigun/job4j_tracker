@@ -1,6 +1,4 @@
-package ru.job4j.tracker;
-
-import ru.job4j.Engineer;
+package ru.job4j;
 
 public class Builder extends Engineer {
     private String speciality;

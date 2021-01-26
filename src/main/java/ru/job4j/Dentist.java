@@ -1,6 +1,4 @@
-package ru.job4j.tracker;
-
-import ru.job4j.Doctor;
+package ru.job4j;
 
 public class Dentist extends Doctor {
     private String specific;
