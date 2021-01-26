@@ -34,20 +34,22 @@ public class Tracker {
     }
 
     public boolean replace(int id, Item item) {
-        int index = indexOf(id);
-        int itemId = items[index].getId();
         boolean rsl = false;
+        int index = indexOf(id);
+        item.setId(id);
         items[index] = item;
-        rsl = (itemId == items[index].getId());
+        rsl = (id == items[index].getId());
         return rsl;
     }
 
     public Item[] findByName(String key){
-        Item[] rsl = new Item[];
+        Item[] rsl = new Item[items.length];
+        int count = 0;
         for (int index = 0; index < size; index++) {
             if (items[index].getName().equals(key)) {
-                for (int j = 0; j <= index; j++){
-                    rsl[j] = items[index];
+                while (count<= index){
+                    rsl[count] = items[index];
+                    count++;
                 }
             }
         }
