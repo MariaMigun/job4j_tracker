@@ -47,12 +47,10 @@ public class Tracker {
         int count = 0;
         for (int index = 0; index < size; index++) {
             if (items[index].getName().equals(key)) {
-                while (count<= index){
-                    rsl[count] = items[index];
-                    count++;
-                }
+                rsl[count] = items[index];
+                count++;
             }
         }
-        return rsl;
+        return Arrays.copyOf(rsl, count);
     }
 }
