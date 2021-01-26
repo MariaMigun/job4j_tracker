@@ -42,12 +42,13 @@ public class Tracker {
         return rsl;
     }
 
-    public Item findByName(String key){
-        Item rsl = items[0];
+    public Item[] findByName(String key){
+        Item[] rsl = new Item[];
         for (int index = 0; index < size; index++) {
             if (items[index].getName().equals(key)) {
-                rsl = items[index];
-                break;
+                for (int j = 0; j <= index; j++){
+                    rsl[j] = items[index];
+                }
             }
         }
         return rsl;
