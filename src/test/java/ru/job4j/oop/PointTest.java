@@ -1,6 +1,5 @@
 package ru.job4j.oop;
 
-import junit.framework.TestCase;
 import org.junit.Test;
 
 import static org.hamcrest.core.Is.is;
