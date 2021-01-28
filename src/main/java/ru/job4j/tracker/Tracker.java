@@ -18,6 +18,7 @@ public class Tracker {
         /* Если индекс найден возвращаем item, иначе null */
         return index != -1 ? items[index] : null;
     }
+
     public Item[] findAll(){
         return Arrays.copyOf(items, size);
     }
@@ -41,6 +42,12 @@ public class Tracker {
             return true;
         }
         return false;
+    }
+
+    public boolean delete(int id) {
+        items[indexOf(id)] = null;
+        System.arraycopy(items, (indexOf(id) + 1), items, indexOf(id), (items.length - 1 - indexOf(id)));
+        return true;
     }
 
     public Item[] findByName(String key){
