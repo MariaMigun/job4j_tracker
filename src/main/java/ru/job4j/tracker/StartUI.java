@@ -12,5 +12,6 @@ public class StartUI {
         Tracker track = new Tracker();
         track.add(item);
         System.out.println("ID элемента: " + track.findById(item.getId()));
+        System.out.println(item);
     }
 }
