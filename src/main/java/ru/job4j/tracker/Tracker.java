@@ -41,9 +41,6 @@ public class Tracker {
             item.setId(id);
             items[index] = item;
         }
-        else {
-            System.out.println("index can not be -1");
-        }
         return rsl;
     }
     /*public boolean replace(int id, Item item) {
@@ -63,9 +60,6 @@ public class Tracker {
             System.arraycopy(items, (index + 1), items, index, (size - 1 - index));
             items[size - 1] = null;
             size--;
-        }
-        else {
-            System.out.println("index can not be -1");
         }
         return rsl;
     }
