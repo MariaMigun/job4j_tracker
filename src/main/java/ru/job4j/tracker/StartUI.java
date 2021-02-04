@@ -35,7 +35,9 @@ public class StartUI {
             } else if (select == 1) {
                 System.out.println("=== Show all items ====");
                 Item[] item = tracker.findAll();
-                System.out.println(item.toString());
+                for(int i = 0; i < item.length; i++) {
+                    System.out.println(item[i].toString());
+                }
             }
             if (select == 2) {
                 System.out.println("=== Edit item ====");
