@@ -5,6 +5,46 @@ import java.time.format.DateTimeFormatter;
 
 
 public class StartUI {
+    public static void createItem(Input input, Tracker tracker) {
+        System.out.println("=== Create a new Item ====");
+        String name = input.askStr("Enter name: ");
+        Item item = new Item();
+        item.setName(name);
+        Item it = tracker.add(item);
+        System.out.println("Добавили элемент " + name + "Массив : " + it.toString());
+    }
+
+    public static void replaceItem(Input input, Tracker tracker) {
+        System.out.println("=== Edit item ====");
+        System.out.print("Enter id: ");
+        int id = Integer.valueOf(input.askStr("Enter id: "));
+        tracker.findById(id);
+        System.out.print("Enter name: ");
+        String name = input.askStr("Enter name: ");
+        Item item = new Item();
+        item.setName(name);
+        boolean rsl = tracker.replace(id,item);
+        if (rsl){
+            System.out.println("Замена прошла успешно");
+        }
+        else {
+            System.out.println("Замена не удалась");
+        }
+    }
+
+    public static void deleteItem(Input input, Tracker tracker) {
+        System.out.println("=== Delete item ====");
+        System.out.print("Enter id: ");
+        int id = Integer.valueOf(input.askStr("Enter id: "));
+        boolean rsl = tracker.delete(id);
+        if(rsl){
+            System.out.println("Удален элемент ");
+        }
+        else {
+            System.out.println("Удаления не произошло");
+        }
+    }
+
     private void showMenu() {
         System.out.println("Menu.");
         /* добавить остальные пункты меню. */
@@ -24,14 +64,7 @@ public class StartUI {
             System.out.print("Select: ");
             int select = Integer.valueOf(input.askStr("Select: "));
             if (select == 0) {
-                System.out.println("=== Create a new Item ====");
-                System.out.print("Enter name: ");
-                String name = input.askStr("Enter name: ");
-                Item item = new Item();
-                item.setName(name);
-                Item it = tracker.add(item);
-                System.out.println("Добавили элемент " + name + "Массив : " + it.toString());
-
+                StartUI.createItem(input, tracker);
             } else if (select == 1) {
                 System.out.println("=== Show all items ====");
                 Item[] item = tracker.findAll();
@@ -40,34 +73,10 @@ public class StartUI {
                 }
             }
             if (select == 2) {
-                System.out.println("=== Edit item ====");
-                System.out.print("Enter id: ");
-                int id = Integer.valueOf(input.askStr("Enter id: "));
-
-                tracker.findById(id);
-                System.out.print("Enter name: ");
-                String name = input.askStr("Enter name: ");
-                Item item = new Item();
-                item.setName(name);
-                boolean rsl = tracker.replace(id,item);
-                if (rsl){
-                    System.out.println("Замена прошла успешно");
-                }
-                else {
-                    System.out.println("Замена не удалась");
-                }
+                StartUI.replaceItem(input, tracker);
             }
             if (select == 3) {
-                System.out.println("=== Delete item ====");
-                System.out.print("Enter id: ");
-                int id = Integer.valueOf(input.askStr("Enter id: "));
-                boolean rsl = tracker.delete(id);
-                if(rsl){
-                    System.out.println("Удален элемент ");
-                }
-                else {
-                    System.out.println("Удаления не произошло");
-                }
+                StartUI.deleteItem(input, tracker);
             }
             if (select == 4) {
                 System.out.println("=== Find item by Id ====");
