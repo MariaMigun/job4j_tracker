@@ -45,6 +45,43 @@ public class StartUI {
         }
     }
 
+    public static void showAllItems(Input input, Tracker tracker) {
+        System.out.println("=== Show all items ====");
+        Item[] item = tracker.findAll();
+        for(int i = 0; i < item.length; i++) {
+            System.out.println(item[i].toString());
+        }
+    }
+
+    public static void findItemById(Input input, Tracker tracker) {
+        System.out.println("=== Find item by Id ====");
+        System.out.print("Enter id: ");
+        int id = Integer.valueOf(input.askStr("Enter id: "));
+        Item item = tracker.findById(id);
+        if (item == null){
+            System.out.println("Заявка по ID не найдена");
+        }
+        else {
+            System.out.println(item.toString());
+        }
+    }
+
+    public static void findItemByName(Input input, Tracker tracker) {
+        System.out.println("=== Find items by name ====");
+        System.out.print("Enter name: ");
+        String name = input.askStr("Enter name: ");
+        Item[] item = tracker.findByName(name);
+        if (item.length > 0){
+            for (int i = 0; i < item.length; i++){
+                System.out.println(item[i].toString());
+            }
+        }
+        else {
+            System.out.println("Заявки по имени не найдены");
+        }
+    }
+
+
     private void showMenu() {
         System.out.println("Menu.");
         /* добавить остальные пункты меню. */
@@ -66,11 +103,7 @@ public class StartUI {
             if (select == 0) {
                 StartUI.createItem(input, tracker);
             } else if (select == 1) {
-                System.out.println("=== Show all items ====");
-                Item[] item = tracker.findAll();
-                for(int i = 0; i < item.length; i++) {
-                    System.out.println(item[i].toString());
-                }
+                StartUI.showAllItems(input, tracker);
             }
             if (select == 2) {
                 StartUI.replaceItem(input, tracker);
@@ -79,30 +112,10 @@ public class StartUI {
                 StartUI.deleteItem(input, tracker);
             }
             if (select == 4) {
-                System.out.println("=== Find item by Id ====");
-                System.out.print("Enter id: ");
-                int id = Integer.valueOf(input.askStr("Enter id: "));
-                Item item = tracker.findById(id);
-                if (item == null){
-                    System.out.println("Заявка по ID не найдена");
-                }
-                else {
-                    System.out.println(item.toString());
-                }
+                StartUI.findItemById(input, tracker);
             }
             if (select == 5) {
-                System.out.println("=== Find items by name ====");
-                System.out.print("Enter name: ");
-                String name = input.askStr("Enter name: ");
-                Item[] item = tracker.findByName(name);
-                if (item.length > 0){
-                    for (int i = 0; i < item.length; i++){
-                        System.out.println(item[i].toString());
-                    }
-                }
-                else {
-                    System.out.println("Заявки по имени не найдены");
-                }
+                StartUI.findItemByName(input, tracker);
             }
             else if (select == 6) {
                 run = false;
