@@ -3,7 +3,7 @@ package ru.job4j.tracker;
 
 
 public class StartUI {
-    public static void createItem(Input input, Tracker tracker) {
+    /*public static void createItem(Input input, Tracker tracker) {
         System.out.println("=== Create a new Item ====");
         String name = input.askStr("Enter name: ");
         Item item = new Item();
@@ -62,9 +62,9 @@ public class StartUI {
         else {
             System.out.println(item.toString());
         }
-    }
+    }*/
 
-    public static void findItemByName(Input input, Tracker tracker) {
+   /* public static void findItemByName(Input input, Tracker tracker) {
         System.out.println("=== Find items by name ====");
         System.out.print("Enter name: ");
         String name = input.askStr("Enter name: ");
@@ -77,7 +77,7 @@ public class StartUI {
         else {
             System.out.println("Заявки по имени не найдены");
         }
-    }
+    }*/
 
 
     private void showMenu(UserAction[] actions) {
@@ -136,7 +136,8 @@ public class StartUI {
                 new DeleteAction(),
                 new ShowAllAction(),
                 new FindByIdAction(),
-                new FindByNameAction()
+                new FindByNameAction(),
+                new Exit()
         };
         new StartUI().init(input, tracker, actions);
     }
