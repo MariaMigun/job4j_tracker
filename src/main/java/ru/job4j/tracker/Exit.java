@@ -6,6 +6,7 @@ public class Exit implements UserAction{
     public Exit(Output out) {
         this.out = out;
     }
+
     @Override
     public String name() {
         return "Exit";
@@ -13,7 +14,7 @@ public class Exit implements UserAction{
 
     @Override
     public boolean execute(Input input, Tracker tracker) {
-        out.println("=== Exit ====");
+        out.println("0. Exit");
         return false;
     }
 }
