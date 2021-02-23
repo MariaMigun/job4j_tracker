@@ -103,7 +103,7 @@ public class StartUITest {
         assertThat(deleted, Matchers.is(nullValue()));
     }
 
-    @Test
+   /* @Test
     public void whenExit() {
         Output out = new StubOutput();
         Input in = new StubInput(
@@ -117,6 +117,47 @@ public class StartUITest {
         assertThat(out.toString(), is(
                 "Menu." + System.lineSeparator() +
                         "0. Exit" + System.lineSeparator()
+        ));
+    }*/
+
+    @Test
+    public void whenInvalidExit() {
+        Output out = new StubOutput();
+        Input in = new StubInput(
+                new String[] {"-1"}
+        );
+        Tracker tracker = new Tracker();
+        UserAction[] actions = {
+                new Exit(out)
+        };
+        new StartUI(out).init(in, tracker, actions);
+        assertThat(out.toString(), is(
+                String.format(
+                        "Menu.%n"
+                                + "0. Exit%n"
+                                + "Wrong input, you can select: 0 .. 0%n"
+                                + "Menu.%n"
+                                + "0. Exit%n"
+                )
+        ));
+    }
+
+    @Test
+    public void whenValidExit() {
+        Output out = new StubOutput();
+        Input in = new StubInput(
+                new String[] { "0"}
+        );
+        Tracker tracker = new Tracker();
+        UserAction[] actions = {
+                new Exit(out)
+        };
+        new StartUI(out).init(in, tracker, actions);
+        assertThat(out.toString(), is(
+                String.format(
+                        "Menu.%n"
+                                + "0. Exit%n"
+                )
         ));
     }
 }
