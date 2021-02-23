@@ -157,6 +157,7 @@ public class StartUITest {
                 String.format(
                         "Menu.%n"
                                 + "0. Exit%n"
+                                + "0. Exit%n"
                 )
         ));
     }
