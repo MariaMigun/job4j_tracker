@@ -7,10 +7,6 @@ public final class Tracker {
 
     private static Tracker instance = null;
 
-    private String[] messages = new String[1000];
-    private int index = 0;
-
-
     private final Item[] items = new Item[100];
     private int ids = 1;
     private int size = 0;
@@ -20,13 +16,6 @@ public final class Tracker {
             instance = new Tracker();
         }
         return instance;
-    }
-
-    public void add(String message) {
-        messages[index++] = message;
-    }
-
-    public void save(){
     }
 
     public Item add(Item item) {
