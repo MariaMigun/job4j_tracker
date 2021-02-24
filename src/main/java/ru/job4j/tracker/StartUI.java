@@ -135,6 +135,9 @@ public class StartUI {
     }
 
     public static void main(String[] args) {
+        Tracker log = Tracker.getInstance();
+        log.add("add new Item");
+        log.save();
         Output output = new ConsoleOutput();
         Input input = new ValidateInput(output, new ConsoleInput());
         Tracker tracker = new Tracker();
