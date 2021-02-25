@@ -5,13 +5,18 @@ public class Doctor extends Profession {
 
     private String hospital;
 
+    private Doctor(String name, String education, String birthday, String hospital, String patient) {
+        super (name, education, birthday);
+        this.hospital = hospital;
+        this.patient = patient;
+    }
+
+    public void setPatient(String patient) {
+        this.patient = patient;
+    }
+
     private String getPatient() {
         return patient;
     }
 
-    public Doctor(String name, String education, String hospital) {
-        this.name = name;
-        this.education = education;
-        this.hospital = hospital;
-    }
 }

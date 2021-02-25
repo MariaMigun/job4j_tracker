@@ -9,6 +9,13 @@ public class Profession {
 
     private String birthday;
 
+    private Profession(String name, String surname, String education, String birthday) {
+        this.name = name;
+        this.surname = surname;
+        this.education = education;
+        this.birthday = birthday;
+    }
+
     public String getName() {
         return name;
     }
@@ -25,13 +32,11 @@ public class Profession {
         return education;
     }
 
-    public Profession(String text) {
-        this.name = text;
+    public void setEducation(String education) {
+        this.education = education;
     }
 
-    public static void main(String[] args) {
-        String firstName = "Ivan";
-        Profession item = new Profession(firstName);
+    public void setName(String name) {
+        this.name = name;
     }
-
 }
