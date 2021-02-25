@@ -5,6 +5,10 @@ public class Engineer extends Profession {
 
     private String factory;
 
+    public Engineer(String text) {
+        this.factory = text;
+    }
+
     public String getPartner() {
         return partner;
     }

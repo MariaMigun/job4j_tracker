@@ -25,4 +25,13 @@ public class Profession {
         return education;
     }
 
+    public Profession(String text) {
+        this.name = text;
+    }
+
+    public static void main(String[] args) {
+        String firstName = "Ivan";
+        Profession item = new Profession(firstName);
+    }
+
 }
