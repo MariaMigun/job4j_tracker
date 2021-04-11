@@ -1,7 +1,10 @@
 package ru.job4j;
 
 public class Engineer extends Profession {
-    private String partner;
+    public Engineer(String name, String education, String birthday) {
+        super(name, education, birthday);
+    }
+   /* private String partner;
 
     private String factory;
 
@@ -11,5 +14,5 @@ public class Engineer extends Profession {
 
     public String getPartner() {
         return partner;
-    }
+    }*/
 }
