@@ -8,18 +8,13 @@ public class PriorityQueue {
         this.tasks.add(task);
     }
 
-    /**
-     * Метод должен вставлять в нужную позицию элемент.
-     * Позиция определяется по полю приоритет.
-     * Для вставки использовать add(int index, E value)
-     * @param task задача
-     */
     public void put(Task task) {
         int index = 0;
         for (Task element : tasks) {
+            index = index + 1;
             if (element.getPriority() < task.getPriority()) {
-                index = index + 1;
-            } else {break;}
+                break;
+            }
         }
         this.tasks.add(index, task);
     }
