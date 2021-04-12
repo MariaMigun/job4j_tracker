@@ -16,8 +16,6 @@ public class PhoneDictionary {
                     || value.getAddress().contains(key))){
                 result.add(value);
                 System.out.println(value);
-            } else {
-                System.out.println("not found");
             }
         }
         return result;
