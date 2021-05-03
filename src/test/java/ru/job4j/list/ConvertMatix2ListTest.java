@@ -10,7 +10,7 @@ import static org.junit.Assert.assertThat;
 public class ConvertMatrix2ListTest {
     @Test
     public void when2on2ArrayThenList4() {
-        ConvertMatrix2List list = new ConvertMatrix2List();
+        ConvertMatix2List list = new ConvertMatix2List();
         int[][] input = {
                 {1, 2},
                 {3, 4}
