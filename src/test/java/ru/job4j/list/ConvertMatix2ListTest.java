@@ -1,13 +1,14 @@
 package ru.job4j.list;
 
-import org.junit.Ignore;
 import org.junit.Test;
+import ru.job4j.collection.ConvertMatix2List;
+
 import java.util.Arrays;
 import java.util.List;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
-public class ConvertMatrix2ListTest {
+public class ConvertMatix2ListTest {
     @Test
     public void when2on2ArrayThenList4() {
         ConvertMatix2List list = new ConvertMatix2List();

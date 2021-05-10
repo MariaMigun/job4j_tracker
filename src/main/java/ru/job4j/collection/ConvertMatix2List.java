@@ -1,4 +1,4 @@
-package ru.job4j.list;
+package ru.job4j.collection;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -13,14 +13,5 @@ public class ConvertMatix2List {
             }
         }
         return list;
-    }
-
-    public void main(String[] args) {
-        int[][] array = new int[2][2];
-        List<Integer> list = toList(array);
-        for (Integer num : list) {
-            System.out.println(num + " ");
-        }
-        System.out.println();
     }
 }
