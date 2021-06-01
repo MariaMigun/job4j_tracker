@@ -2,53 +2,37 @@ package ru.job4j.tracker;
 
 import org.hamcrest.Matchers;
 import org.junit.Test;
+import java.util.Arrays;
+import java.util.Objects;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsNull.nullValue;
 import static org.junit.Assert.*;
 
 public class StartUITest {
 
-   /* @Test
-    public void whenAddItem() {
-        String[] answers = {"Fix PC"};
-        Input input = new StubInput(answers);
+    @Test
+    public void findAllAction() {
+        Output output = new StubOutput();
         Tracker tracker = new Tracker();
-        StartUI.createItem(input, tracker);
-        Item created = tracker.findAll()[0];
-        Item expected = new Item();
-        expected.setName("Fix PC");
-        assertThat(created.getName(), is(expected.getName()));
-    }*/
-
-   /* @Test
-    public void whenReplaceItem() {
-        Tracker tracker = new Tracker();
-        Item item = new Item();
-        item.setName("new item");
-        tracker.add(item);
-        String[] answers = {
-                String.valueOf(item.getId()),
-                "replaced item"
+        String is = System.lineSeparator();
+        Item item1 = new Item();
+        item1.setName("Item name1");
+        Item item2 = new Item();
+        item2.setName("Item name2");
+        tracker.add(item1);
+        tracker.add(item2);
+        Input in = new StubInput(
+                new String[] {"0", "1"}
+        );
+        UserAction[] actions = {
+                new ShowAllAction(output),
+                new Exit(output)
         };
-        StartUI.replaceItem(new StubInput(answers), tracker);
-        Item replaced = tracker.findById(item.getId());
-        assertThat(replaced.getName(), is("replaced item"));
-    }*/
+        new StartUI(output).init(in, tracker, Arrays.asList(actions));
+        assertThat(output.toString(),
+                is("Menu." + is + "0. === Show all items ===" + is + "1. Exit" + is + item1 + is + item2 + is + "Menu." + is + "0. === Show all items ===" + is + "1. Exit" + is));
+    }
 
-    /*@Test
-    public void whenDeleteItem() {
-        Tracker tracker = new Tracker();
-        Item item = new Item();
-        item.setName("new item");
-        tracker.add(item);
-        String[] answers = {
-                String.valueOf(item.getId()), /* id сохраненной заявки в объект tracker. */
-              /*  "deleted item"
-        };
-        StartUI.deleteItem(new StubInput(answers), tracker);
-        Item deleted = tracker.findById(item.getId());
-        assertThat(deleted, Matchers.is(nullValue()));
-    }*/
 
     @Test
     public void whenCreateItem() {
@@ -61,27 +45,27 @@ public class StartUITest {
                 new CreateAction(output),
                 new Exit(output)
         };
-        new StartUI(output).init(in, tracker, actions);
-        assertThat(tracker.findAll()[0].getName(), is("Item name"));
+        new StartUI(output).init(in, tracker, Arrays.asList(actions));
+        assertThat(tracker.findAll().get(0).getName(), is("Item name"));
     }
 
     @Test
     public void whenReplaceItem() {
         Output output = new ConsoleOutput();
-        Input in = new StubInput(
-                new String[] {"0", "1", "NAME", "1"}
-        );
         Tracker tracker = new Tracker();
-        Item item = new Item();
-        item.setName("new item");
-        tracker.add(item);
+        Item item = tracker.add(new Item("Replaced item"));
+        String replacedName = "New item name";
+        Input in = new StubInput(
+                new String[] {"0", String.valueOf(item.getId()), "New item name", "1"}
+        );
         UserAction[] actions = {
                 new EditAction(output),
                 new Exit(output)
         };
-        new StartUI(output).init(in, tracker, actions);
-        Item replaced = tracker.findById(item.getId());
-        assertThat(replaced.getName(), is("NAME"));
+        new StartUI(output).init(in, tracker, Arrays.asList(actions));
+
+        assertThat(Objects.requireNonNull(tracker.findById(item.getId())).getName(),
+                is(replacedName));
     }
 
     @Test
@@ -91,34 +75,15 @@ public class StartUITest {
                 new String[] {"0", "1", "1"}
         );
         Tracker tracker = new Tracker();
-        Item item = new Item();
-        item.setName("new item");
-        tracker.add(item);
+        Item item = tracker.add(new Item("Deleted item"));
         UserAction[] actions = {
                 new DeleteAction(output),
                 new Exit(output)
         };
-        new StartUI(output).init(in, tracker, actions);
-        Item deleted = tracker.findById(item.getId());
-        assertThat(deleted, Matchers.is(nullValue()));
+        new StartUI(output).init(in, tracker, Arrays.asList(actions));
+        assertThat(tracker.findById(item.getId()), is(nullValue()));
     }
 
-   /* @Test
-    public void whenExit() {
-        Output out = new StubOutput();
-        Input in = new StubInput(
-                new String[] {"0"}
-        );
-        Tracker tracker = new Tracker();
-        UserAction[] actions = {
-                new Exit(out)
-        };
-        new StartUI(out).init(in, tracker, actions);
-        assertThat(out.toString(), is(
-                "Menu." + System.lineSeparator() +
-                        "0. Exit" + System.lineSeparator()
-        ));
-    }*/
 
     @Test
     public void whenInvalidExit() {
@@ -130,7 +95,7 @@ public class StartUITest {
         UserAction[] actions = {
                 new Exit(out)
         };
-        new StartUI(out).init(in, tracker, actions);
+        new StartUI(out).init(in, tracker, Arrays.asList(actions));
         assertThat(out.toString(), is(
                 String.format(
                         "Menu.%n"
