@@ -6,18 +6,17 @@ import java.util.List;
 
 public final class Tracker {
 
-    private static Tracker instance = null;
+   /*private static Tracker instance = null;*/
 
     private final  List<Item> items = new ArrayList<>();
     private int ids = 1;
-    private int size = 0;
 
-    public static Tracker getInstance(){
+    /*public static Tracker getInstance(){
         if (instance == null){
             instance = new Tracker();
         }
         return instance;
-    }
+    }*/
 
     public Item add(Item item) {
         item.setId(ids++);
@@ -66,12 +65,13 @@ public final class Tracker {
         return rsl;
     }
 
-    public List<Item> findByName(String key){
+    public List<Item> findByName(String key) {
         List<Item> copyNames = new ArrayList<>();
         for (Item item : items) {
-            if (item.getName().equals(key)) {
+            if (key.equals(item.getName())) {
                 copyNames.add(item);
             }
         }
         return copyNames;
+    }
 }

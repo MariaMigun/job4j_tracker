@@ -22,7 +22,7 @@ public class FindByNameAction implements UserAction{
         List<Item> item = tracker.findByName(name);
         if (item.size() > 0){
             for (int i = 0; i < item.size(); i++){
-                System.out.println(item.get(i).toString());
+                System.out.println(item.get(i));
             }
         }
         else {

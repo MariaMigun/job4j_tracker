@@ -30,7 +30,10 @@ public class StartUITest {
         };
         new StartUI(output).init(in, tracker, Arrays.asList(actions));
         assertThat(output.toString(),
-                is("Menu." + is + "0. === Show all items ===" + is + "1. Exit" + is + item1 + is + item2 + is + "Menu." + is + "0. === Show all items ===" + is + "1. Exit" + is));
+                is("Menu." + is + "0. === Show all items ===" + is + "1. Exit"
+                        + is + item1 + is + item2 + is
+                        + "Menu." + is + "0. === Show all items ==="
+                        + is + "1. Exit" + is));
     }
 
 
@@ -53,7 +56,8 @@ public class StartUITest {
     public void whenReplaceItem() {
         Output output = new ConsoleOutput();
         Tracker tracker = new Tracker();
-        Item item = tracker.add(new Item("Replaced item"));
+        Item item = tracker.add(new Item());
+        item.setName("Replaced item");
         String replacedName = "New item name";
         Input in = new StubInput(
                 new String[] {"0", String.valueOf(item.getId()), "New item name", "1"}
@@ -75,7 +79,8 @@ public class StartUITest {
                 new String[] {"0", "1", "1"}
         );
         Tracker tracker = new Tracker();
-        Item item = tracker.add(new Item("Deleted item"));
+        Item item = tracker.add(new Item()/*("Deleted item")*/);
+        item.setName("Deleted item");
         UserAction[] actions = {
                 new DeleteAction(output),
                 new Exit(output)

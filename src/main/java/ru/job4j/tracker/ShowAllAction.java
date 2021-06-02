@@ -11,7 +11,7 @@ public class ShowAllAction implements UserAction{
 
     @Override
     public String name() {
-        return "Show all items";
+        return "=== Show all items ===";
     }
 
     @Override
@@ -19,7 +19,7 @@ public class ShowAllAction implements UserAction{
         out.println("=== Show all items ====");
         List<Item> item = tracker.findAll();
         for(int i = 0; i < item.size(); i++) {
-            System.out.println(item.get(i).toString());
+            System.out.println(item.get(i));
         }
         return true;
     }
