@@ -17,9 +17,9 @@ public class StartUITest {
         String is = System.lineSeparator();
         Item item1 = new Item();
         item1.setName("Item name1");
+        tracker.add(item1);
         Item item2 = new Item();
         item2.setName("Item name2");
-        tracker.add(item1);
         tracker.add(item2);
         Input in = new StubInput(
                 new String[] {"0", "1"}
@@ -30,9 +30,9 @@ public class StartUITest {
         };
         new StartUI(output).init(in, tracker, Arrays.asList(actions));
         assertThat(output.toString(),
-                is("Menu." + is + "0. === Show all items ===" + is + "1. Exit"
+                is("Menu." + is + "0. Show all items" + is + "1. Exit"
                         + is + item1 + is + item2 + is
-                        + "Menu." + is + "0. === Show all items ==="
+                        + "Menu." + is + "0. Show all items"
                         + is + "1. Exit" + is));
     }
 
