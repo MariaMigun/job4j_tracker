@@ -20,7 +20,8 @@ public class ShowAllAction implements UserAction{
         List<Item> item = tracker.findAll();
         for (Item elem : item){
         /*for(int i = 0; i < item.size(); i++) {*/
-            System.out.println(elem);
+           /* System.out.println(elem);*/
+            out.println(elem);
         }
         return true;
     }
