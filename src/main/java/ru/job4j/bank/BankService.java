@@ -14,9 +14,12 @@ public class BankService {
     }
 
     public void addAccount(String passport, Account account) {
-        List <Account> userAccs = users.get(findByPassport(passport));
-        if (!userAccs.contains(account)){
-            users.get(findByPassport(passport)).add(account);
+        User user = findByPassport(passport);
+        if (user != null){
+            List <Account> userAccs = users.get(user);
+            if (!userAccs.contains(account)){
+                users.get(user).add(account);
+            }
         }
     }
 
@@ -30,9 +33,12 @@ public class BankService {
     }
 
     public Account findByRequisite(String passport, String requisite) {
-        for (Account account : users.get(findByPassport(passport))){
-            if (account.getRequisite().equals(requisite)){
-                return account;
+        List<Account> accounts = users.get(findByPassport(passport));
+        if (accounts != null) {
+            for (Account acc : accounts) {
+                if (acc.getRequisite().equals(requisite)) {
+                    return acc;
+                }
             }
         }
         return null;
@@ -41,17 +47,11 @@ public class BankService {
     public boolean transferMoney(String srcPassport, String srcRequisite,
                                  String destPassport, String destRequisite, double amount) {
         boolean rsl = false;
-        User srcUser = findByPassport(srcPassport);
-        User destUser = findByPassport(destPassport);
         Account accountSrc = findByRequisite(srcPassport, srcRequisite);
         Account accountDest = findByRequisite(destPassport, destRequisite);
-        int srcIndex = users.get(srcUser).indexOf(accountSrc);
-        int destIndex = users.get(destUser).indexOf(accountDest);
-        double destBalance = users.get(destUser).get(destIndex).getBalance();
-        double srcBalance = users.get(srcUser).get(srcIndex).getBalance();
         if (accountSrc != null && accountDest != null && accountSrc.getBalance() >= amount){
-            users.get(srcUser).get(srcIndex).setBalance(srcBalance - amount);
-            users.get(destUser).get(destIndex).setBalance(destBalance + amount);
+            accountSrc.setBalance(accountSrc.getBalance() - amount);
+            accountDest.setBalance(accountDest.getBalance() + amount);
             rsl = true;
         }
         return rsl;
