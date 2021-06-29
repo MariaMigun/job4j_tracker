@@ -14,9 +14,9 @@ public class ItemSorter {
                 new Item(1, "TEA")
         );
         System.out.println(items);
-        /*Collections.sort(items, new SortByNameItems());
+        Collections.sort(items, new SortByNameItems());
         System.out.println(items);
         Collections.sort(items, new SortByNameItems().reversed());
-        System.out.println(items);*/
+        System.out.println(items);
     }
 }
