@@ -9,14 +9,14 @@ public class ItemSorter {
 
     public static void main(String[] args) {
         List<Item> items = Arrays.asList(
-                new Item(5, "day"),
-                new Item(2, "bread"),
-                new Item(1, "TEA")
+                new Item(5, "Bella"),
+                new Item(2, "Anna"),
+                new Item(1, "Frank")
         );
-        System.out.println(items);
+       /* System.out.println(items);*/
         Collections.sort(items, new SortByNameItems());
         System.out.println(items);
-        Collections.sort(items, new SortByNameItems().reversed());
-        System.out.println(items);
+      /*  Collections.sort(items, new SortByNameItems().reversed());
+        System.out.println(items);*/
     }
 }

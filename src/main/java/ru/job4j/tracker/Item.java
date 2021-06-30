@@ -7,10 +7,14 @@ public class Item implements Comparable<Item>{
     private String name;
     private LocalDateTime created = LocalDateTime.now();
 
-    /*public Item (int id, String name){
+    public Item (int id, String name){
         this.id = id;
         this.name  = name;
-    }*/
+    }
+
+    public Item() {
+
+    }
 
     public int getId() {
         return id;
