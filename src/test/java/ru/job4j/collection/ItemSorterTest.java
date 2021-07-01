@@ -6,6 +6,7 @@ import ru.job4j.tracker.Item;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.*;
 
 public class ItemSorterTest {
@@ -40,7 +41,7 @@ public class ItemSorterTest {
                 new Item(2, "Anna")
         );
 
-        Collections.sort(items1, new SortByNameItems());
+        Collections.sort(items1, new SortByNameItems().reversed());
         assertThat(items1, is(items2));
     }
 }
