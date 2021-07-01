@@ -41,7 +41,7 @@ public class ItemSorterTest {
                 new Item(2, "Anna")
         );
 
-        Collections.sort(items1, new SortByNameItems().reversed());
+        Collections.sort(items1, new SortByNameItemsDesc());
         assertThat(items1, is(items2));
     }
 }
