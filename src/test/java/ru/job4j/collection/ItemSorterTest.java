@@ -30,18 +30,19 @@ public class ItemSorterTest {
 
     @Test
     public void testSortDesc() {
-        List<Item> items1 = Arrays.asList(
+        List<Item> items3 = Arrays.asList(
                 new Item(3, "Bella"),
                 new Item(2, "Anna"),
                 new Item(1, "Frank")
         );
-        List<Item> items2 = Arrays.asList(
+        List<Item> items4 = Arrays.asList(
                 new Item(1, "Frank"),
                 new Item(3, "Bella"),
                 new Item(2, "Anna")
         );
 
-        Collections.sort(items1, new SortByNameItemsDesc());
-        assertThat(items1, is(items2));
+        Collections.sort(items3, new SortByNameItemsDesc());
+        assertThat(items3, is(items4));
     }
+
 }
