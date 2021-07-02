@@ -13,36 +13,36 @@ public class ItemSorterTest {
 
     @Test
     public void testSortUp() {
-        List<Item> items1 = Arrays.asList(
+        List<Item> input = Arrays.asList(
                 new Item(3, "Bella"),
                 new Item(2, "Anna"),
                 new Item(1, "Frank")
         );
-        List<Item> items2 = Arrays.asList(
+        List<Item> result = Arrays.asList(
                 new Item(2, "Anna"),
                 new Item(3, "Bella"),
                 new Item(1, "Frank")
         );
 
-        Collections.sort(items1, new SortByNameItems());
-        assertThat(items1, is(items2));
+        Collections.sort(input, new SortByNameItems());
+        assertThat(input, is(result));
     }
 
     @Test
     public void testSortDesc() {
-        List<Item> items3 = Arrays.asList(
+        List<Item> input = Arrays.asList(
                 new Item(3, "Bella"),
                 new Item(2, "Anna"),
                 new Item(1, "Frank")
         );
-        List<Item> items4 = Arrays.asList(
+        List<Item> result = Arrays.asList(
                 new Item(1, "Frank"),
                 new Item(3, "Bella"),
                 new Item(2, "Anna")
         );
 
-        Collections.sort(items3, new SortByNameItemsDesc());
-        assertThat(items3, is(items4));
+        Collections.sort(input, new SortByNameItemsDesc());
+        assertThat(input, is(result));
     }
 
 }
