@@ -11,7 +11,7 @@ public class UserStore {
                 break;
             }
         }
-        if (rsl == null){
+        if (rsl == null) {
             throw new UserNotFoundException("There is no user");
         }
         return users[numb];
@@ -19,13 +19,14 @@ public class UserStore {
 
 
     public static boolean validate(User user) throws UserInvalidExceprion {
-        if(!user.isValid()){
+        if (user.isValid()) {
+            if (user.length() < 3) {
+                throw new UserInvalidExceprion("User name is less then 3 symbols");
+            }
+            return true;
+        } else {
             throw new UserInvalidExceprion("User name is not valid");
         }
-        if (user.length() < 3){
-            throw new UserInvalidExceprion("User name is less then 3 symbols");
-        }
-        return true;
     }
 
     public static void main(String[] args) {
