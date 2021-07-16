@@ -2,7 +2,7 @@ package ru.job4j.ex;
 
 public class Fact {
     public static int calc(int n) {
-        if (n < 0){
+        if (n < 0) {
             throw new IllegalArgumentException("n should be > 0.");
         }
         int rsl = 1;
@@ -11,6 +11,7 @@ public class Fact {
         }
         return rsl;
     }
+
     public static void main(String[] args) {
         System.out.println("factorial : " + calc(-1));
     }

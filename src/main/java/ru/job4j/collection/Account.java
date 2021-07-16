@@ -33,6 +33,7 @@ public class Account {
 
     @Override
     public String toString() {
-        return MessageFormat.format("Account'{'passport=''{0}'', username=''{1}'', deposit=''{2}'''}'", passport, username, deposit);
+        String pattern = "Account'{'passport=''{0}'', username=''{1}'', deposit=''{2}'''}'";
+        return MessageFormat.format(pattern, passport, username, deposit);
     }
 }

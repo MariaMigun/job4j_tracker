@@ -5,7 +5,7 @@ public class UserStore {
        String rsl = "null";
        int numb = -1;
         for (int i = 0; i < users.length; i++) {
-            if (users[i].equals(login)){
+            if (users[i].equals(login)) {
                 rsl = login;
                 numb = i;
                 break;
@@ -16,7 +16,6 @@ public class UserStore {
         }
         return users[numb];
     }
-
 
     public static boolean validate(User user) throws UserInvalidExceprion {
         if (user.isValid()) {

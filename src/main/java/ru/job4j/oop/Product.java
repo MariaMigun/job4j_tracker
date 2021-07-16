@@ -15,7 +15,7 @@ public class Product {
         return price - discount();
     }
 
-    public int discount(){
+    public int discount() {
         return 0;
     }
 
@@ -25,8 +25,12 @@ public class Product {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Product product = (Product) o;
         return price == product.price && Objects.equals(name, product.name);
     }

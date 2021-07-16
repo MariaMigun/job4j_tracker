@@ -11,7 +11,7 @@ public class Library {
         books[1] = bookTwo;
         books[2] = bookThree;
         books[3] = bookFour;
-        for (int index = 0; index < books.length; index++){
+        for (int index = 0; index < books.length; index++) {
             Book bk = books[index];
             System.out.println(bk.getName() + "- " + bk.getCount());
         }
@@ -27,7 +27,7 @@ public class Library {
         System.out.println("Books named  Clean code: ");
         for (int index = 0; index < books.length; index++) {
             Book bk = books[index];
-            if (bk.getName().equals("Clean code")){
+            if (bk.getName().equals("Clean code")) {
                 System.out.println(bk.getName() + " - " + bk.getCount());
             }
         }

@@ -21,7 +21,7 @@ public class User {
         this.username = username;
     }
 
-    public int length(){
+    public int length() {
         return this.length();
     }
 }

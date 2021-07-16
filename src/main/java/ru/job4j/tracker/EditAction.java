@@ -1,6 +1,6 @@
 package ru.job4j.tracker;
 
-public class EditAction implements UserAction{
+public class EditAction implements UserAction {
     private final Output out;
 
     public EditAction(Output out) {
@@ -22,11 +22,10 @@ public class EditAction implements UserAction{
         String name = input.askStr("Enter name: ");
         Item item = new Item();
         item.setName(name);
-        boolean rsl = tracker.replace(id,item);
-        if (rsl){
+        boolean rsl = tracker.replace(id, item);
+        if (rsl) {
             System.out.println("Замена прошла успешно");
-        }
-        else {
+        } else {
             System.out.println("Замена не удалась");
         }
         return true;

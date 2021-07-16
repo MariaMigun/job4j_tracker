@@ -8,10 +8,8 @@ public class UsageArrayList {
         obj.add("Maria");
         obj.add("Marina");
         obj.add("Marianna");
-        for ( Object value : obj){
+        for (Object value : obj) {
             System.out.println(value);
         }
-
     }
-
 }

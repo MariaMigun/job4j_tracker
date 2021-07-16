@@ -4,7 +4,7 @@ import java.util.LinkedList;
 public class PriorityQueue {
     private LinkedList<Task> tasks = new LinkedList<>();
 
-    public void add(Task task){
+    public void add(Task task) {
         this.tasks.add(task);
     }
 

@@ -6,10 +6,9 @@ import java.util.List;
 public class StartUI {
     private final Output out;
 
-    public StartUI(Output out){
+    public StartUI(Output out) {
         this.out = out;
     }
-
 
     private void showMenu(List<UserAction> actions) {
         out.println("Menu.");
